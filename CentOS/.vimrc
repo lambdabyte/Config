@@ -9,15 +9,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 
-" Code Completion
-if has('nvim')
-	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-	Plug 'Shougo/deoplete.nvim'
-	Plug 'roxma/nvim-yarp'
-	Plug 'roxma/vim-hug-neovim-rpc'
-endif
-
 " " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
@@ -42,37 +33,39 @@ let g:airline_skip_empty_sections = 1
 " Default
 set laststatus=2 
 set t_Co=256
+set number
+highlight LineNr ctermfg=37
 
-" Deoplete Auto Complete Config
 
-" Don't forget to start deoplete let g:deoplete#enable_at_startup = 1 " Less
-" spam let g:deoplete#auto_complete_start_length = 2 
-" " Use smartcase
-let g:deoplete#enable_smart_case = 1
-" " Setup completion sources
-let g:deoplete#sources = {}
+" IDE config
+syntax on
 
-" " IMPORTANT: PLEASE INSTALL JAVACOMPLETE2  AND ULTISNIPS OR DONT ADD THIS
-" LINE!
-" " =====================================
 
-" let g:deoplete#sources.java = ['jc', 'javacomplete2', 'file', 'buffer','ultisnips']
 
-" " =====================================
 
-" use TAB as the mapping
-inoremap <silent><expr> <TAB>
-	\ pumvisible() ?  "\<C-n>" :
-	\ <SID>check_back_space() ? "\<TAB>" :
-	\ deoplete#mappings#manual_complete()
-function! s:check_back_space() abort "" {{{
-	let col = col('.') - 1
-        return !col || getline('.')[col - 1]  =~ '\s'
-endfunction "" }}}
 
-"Java completion
-"autocmd FileType java setlocal omnifunc=javacomplete#Complete
-"autocmd FileType java JCEnable
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
